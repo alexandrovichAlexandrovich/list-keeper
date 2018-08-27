@@ -1,0 +1,25 @@
+/*.bordered{*/
+  /*border: 0px solid black;*/
+/*}*/
+
+.top-bar{
+  top: 0px;
+  left: 0px;
+  background-color: lightcoral;
+  font-family: sans-serif;
+  overflow: hidden;
+  border: 0px;
+  padding-left: 40px;
+}
+
+.list-submit-form{
+  font-family: sans-serif;
+  padding-bottom: 15px;
+}
+
+.theres-nothing-here {
+  font-family: sans-serif;
+  color: dimgrey;
+  font-size: 24px;
+  padding-left: 40px;
+}
