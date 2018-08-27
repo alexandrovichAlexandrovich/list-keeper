@@ -21,8 +21,17 @@
 <div class="theres-nothing-here" *ngIf="searchFilter !== ''">
   Lists with names containing search term:
 </div>
+
 <div class="bordered" *ngFor="let list of lists; let i = index">
-    <app-list [titleSearchFilter]="searchFilter" [title]=list [pos]="i+1" (onRemove)="removeList($event)" (onMoveToTop)="moveToFront($event)" (onMoveToIndex)="moveToTarget($event)"></app-list>
+
+    <app-list [title]=list [items]=contents[list] [pos]="i+1"
+              (onDeleteList)="removeList($event)"
+              (onMoveToTop)="moveToFront($event)"
+              (onMoveToIndex)="moveToTarget($event)"
+              (onAddItemToList)="addItemToList($event)"
+              (onRemoveItemFromList)="removeItemFromList($event)">
+
+    </app-list>
     <!--<app-list [title]=list (onRemove)="removeList($event)" (onMoveToTop)="moveToFront($event)"></app-list>-->
 </div>
 
