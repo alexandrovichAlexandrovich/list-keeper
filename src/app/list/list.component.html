@@ -1,0 +1,39 @@
+<!--List Header; name and control buttons.-->
+
+<div class="list-header">
+    <button class="remove-list-button" (click)="deleteList()">X</button>
+    <div style="display: inline-block;" class="list-name">
+      <p style="display: inline-block">{{ title }}</p>
+
+      <button style="display: inline-block;background: transparent; margin-left: 20px"
+              (click)="collapseExpand()">
+        {{ collapsed ? "[+]" : "[-]" }}
+      </button>
+
+      <button style="display: inline-block; background: transparent"
+              (click)="moveToTop()">
+        [^]
+      </button>
+
+      <button style="display: inline-block; background: transparent">
+        Move to position (enter to submit):
+      </button>
+
+      <input #index type="number" style="width:40px" value="{{pos}}"
+             (keyup.enter)="moveToIndex()"
+             (blur)="resetPositionValue()">
+    </div>
+  </div>
+
+<!--List's contents-->
+
+<div *ngIf="!collapsed">
+  <div class="list-item"  *ngFor="let item of items">
+    <button class="remove-item-button" (click)="removeItem(item)">X</button>
+    <p style="display: inline-block;"  class="item-text">{{item.text}}</p>
+  </div>
+  <app-list-form [warning]="inputEmpty ? 'Add an item to the list!' : ''"
+                 [placeholder]="'New item (enter to submit)'"
+                 (onFormSubmit)="addItem($event)">
+  </app-list-form>
+</div>

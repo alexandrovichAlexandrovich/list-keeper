@@ -1,0 +1,7 @@
+<input #field placeholder={{placeholder}}
+       [style.font-size]="fontSize"
+       [style.border-color]="warning !== '' ? 'red' : 'dimgrey'"
+       (keyup)="emitCurrentValue(field.value)"
+       (keyup.enter)="submitForm(field.value); field.value = ''">
+
+<div *ngIf="warning !== ''"> {{warning}} </div>
