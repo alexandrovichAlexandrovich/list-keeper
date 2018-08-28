@@ -29,7 +29,7 @@
 </div>
 
 <div class="theres-nothing-here" *ngIf="searchFilter !== ''" style="margin-bottom: 20px">
-  Lists with names containing search term:
+  Search by list name:
 </div>
 
 <div style="margin-bottom: 20px">
@@ -50,7 +50,7 @@
 
 <div *ngIf="searchFilter !== ''" style="padding-top: 20px; border-top: 1px solid dimgray">
   <div class="theres-nothing-here">
-    Lists with items containing search term:
+    Search by list contents:
   </div>
   <div class="bordered" *ngFor="let list of lists; let i = index">
     <div *ngIf="searchByItemText(list)">
