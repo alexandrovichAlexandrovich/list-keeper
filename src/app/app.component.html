@@ -1,47 +1,66 @@
 <div class="top-bar">
-  <h1>
-    List Keeper <br />
-    TO DO: <br />
-    - get item data in app component and pass to list
+  <h1>List Keeper
   </h1>
 </div>
 
-<div class="list-submit-form">
-    <app-list-form [fontSize]="'18px'" [placeholder]="'New list name (enter to submit)'" [warning]="warning" (onFormSubmit)="addList($event)"></app-list-form>
-</div>
+<!--Text field to submit a new list-->
 
 <div class="list-submit-form">
-  <app-list-form [fontSize]="'18px'" [placeholder]="'Search for a list by name or items contained'" (onKeyUp)="search($event)"></app-list-form>
+    <app-list-form [fontSize]="'18px'"
+                   [placeholder]="'New list name (enter to submit)'"
+                   [warning]="warning"
+                   (onFormSubmit)="addList($event)">
+    </app-list-form>
 </div>
 
-<div class="theres-nothing-here" *ngIf="lists.length === 0">
+<!--Search bar-->
+
+<div class="list-submit-form">
+  <app-list-form [fontSize]="'18px'"
+                 [placeholder]="'Search for a list by name or items contained'"
+                 (onKeyUp)="search($event)">
+  </app-list-form>
+</div>
+
+<div class="theres-nothing-here" *ngIf="lists.length === 0 && searchFilter === ''">
   Looks like there's nothing here.
 </div>
 
-<div class="theres-nothing-here" *ngIf="searchFilter !== ''">
+<div class="theres-nothing-here" *ngIf="searchFilter !== ''" style="margin-bottom: 20px">
   Lists with names containing search term:
 </div>
 
-<div class="bordered" *ngFor="let list of lists; let i = index">
-
-    <app-list [title]=list [items]=contents[list] [pos]="i+1"
-              (onDeleteList)="removeList($event)"
-              (onMoveToTop)="moveToFront($event)"
-              (onMoveToIndex)="moveToTarget($event)"
-              (onAddItemToList)="addItemToList($event)"
-              (onRemoveItemFromList)="removeItemFromList($event)">
-
-    </app-list>
-    <!--<app-list [title]=list (onRemove)="removeList($event)" (onMoveToTop)="moveToFront($event)"></app-list>-->
+<div style="margin-bottom: 20px">
+  <div *ngFor="let list of lists; let i = index">
+    <div *ngIf="list.includes(searchFilter)">
+      <app-list [title]=list [items]=contents[list] [pos]="i+1"
+                (onDeleteList)="removeList($event)"
+                (onMoveToTop)="moveToFront($event)"
+                (onMoveToIndex)="moveToTarget($event)"
+                (onAddItemToList)="addItemToList($event)"
+                (onRemoveItemFromList)="removeItemFromList($event)">
+      </app-list>
+    </div>
+  </div>
 </div>
 
-<!--<div *ngIf="searchFilter !== ''">-->
-  <!--<div class="theres-nothing-here">-->
-    <!--Lists with items containing search term:-->
-  <!--</div>-->
-  <!--<div class="bordered" *ngFor="let list of lists; let i = index">-->
-      <!--<app-list [itemSearchFilter]="searchFilter" [title]=list [pos]="i+1" (onRemove)="removeList($event)" (onMoveToTop)="moveToFront($event)" (onMoveToIndex)="moveToTarget($event)"></app-list>-->
-  <!--</div>-->
-<!--</div>-->
+<!--Conditional div that only appears when search is used to show item search results.-->
+
+<div *ngIf="searchFilter !== ''" style="padding-top: 20px; border-top: 1px solid dimgray">
+  <div class="theres-nothing-here">
+    Lists with items containing search term:
+  </div>
+  <div class="bordered" *ngFor="let list of lists; let i = index">
+    <div *ngIf="searchByItemText(list)">
+      <app-list [title]=list [items]=contents[list] [pos]="i+1"
+                (onDeleteList)="removeList($event)"
+                (onMoveToTop)="moveToFront($event)"
+                (onMoveToIndex)="moveToTarget($event)"
+                (onAddItemToList)="addItemToList($event)"
+                (onRemoveItemFromList)="removeItemFromList($event)">
+      </app-list>
+    </div>
+  </div>
+</div>
 
 
