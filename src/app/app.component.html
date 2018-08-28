@@ -18,7 +18,9 @@
 <div class="list-submit-form">
   <app-list-form [fontSize]="'18px'"
                  [placeholder]="'Search for a list by name or items contained'"
-                 (onKeyUp)="search($event)">
+                 [resetOnSubmit]="false"
+                 (onKeyUp)="search($event)"
+                 (onFormSubmit)="search($event)">
   </app-list-form>
 </div>
 

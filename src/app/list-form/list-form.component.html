@@ -2,6 +2,6 @@
        [style.font-size]="fontSize"
        [style.border-color]="warning !== '' ? 'red' : 'dimgrey'"
        (keyup)="emitCurrentValue(field.value)"
-       (keyup.enter)="submitForm(field.value); field.value = ''">
+       (keyup.enter)="submitForm(field.value); field.value = resetOnSubmit ? '' : field.value; ">
 
 <div *ngIf="warning !== ''"> {{warning}} </div>

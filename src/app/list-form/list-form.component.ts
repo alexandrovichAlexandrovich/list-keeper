@@ -14,6 +14,7 @@ export class ListFormComponent implements OnInit {
   @Input() placeholder: string;
   @Input() warning = '';
   @Input() fontSize = '12px';
+  @Input() resetOnSubmit = true;
 
   /**
    * Emits an event when a user hits the Enter key.
@@ -24,6 +25,7 @@ export class ListFormComponent implements OnInit {
    * Emits an event when the user hits any key.
    */
   @Output() onKeyUp: EventEmitter<string> = new EventEmitter();
+
 
   constructor() { }
   ngOnInit() { }

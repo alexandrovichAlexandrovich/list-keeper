@@ -1,27 +1,19 @@
-# ListKeeper
+# list-keeper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+list-keeper is a simple front-end application to store and manipulate lists. Hit enter to submit a text or search field, and use the buttons to navigate and move lists around.
 
-## Development server
+This approach stores lists in JSON format in AppComponent and uses event emitters from the child ListComponents to manipulate them. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Build and deploy for testing (Angular)
 
-## Code scaffolding
+To run, make sure to first install Angular 2+.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+From the parent directory, run `ng build` to build the project. Then, run `ng serve` to test on a dev server.
 
-## Build
+Navigate to `http://localhost:4200/` in a browser of your choice. The app will automatically reload if you change any of the source files.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Compatibility
 
-## Running unit tests
+Tested with up-to-date versions of Chrome, Firefox, and Safari.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

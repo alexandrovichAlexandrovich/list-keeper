@@ -1,18 +1,21 @@
-<!--List Header; name and control buttons.-->
+<div class="list">
+  <!--List Header; name and control buttons.-->
 
-<div class="list-header">
-    <button class="remove-list-button" (click)="deleteList()">X</button>
+  <div class="list-header">
+    <div style="display: inline-block; float:left">
+      <button class="remove-list-button" (click)="deleteList()">X</button>
+    </div>
     <div style="display: inline-block;" class="list-name">
       <p style="display: inline-block">{{ title }}</p>
 
       <button style="display: inline-block;background: transparent; margin-left: 20px"
               (click)="collapseExpand()">
-        {{ collapsed ? "[+]" : "[-]" }}
+        {{ collapsed ? "[Expand]" : "[Collapse]" }}
       </button>
 
       <button style="display: inline-block; background: transparent"
               (click)="moveToTop()">
-        [^]
+        [Move to top]
       </button>
 
       <button style="display: inline-block; background: transparent">
@@ -25,15 +28,17 @@
     </div>
   </div>
 
-<!--List's contents-->
+  <!--List's contents-->
 
-<div *ngIf="!collapsed">
-  <div class="list-item"  *ngFor="let item of items">
-    <button class="remove-item-button" (click)="removeItem(item)">X</button>
-    <p style="display: inline-block;"  class="item-text">{{item.text}}</p>
+  <div *ngIf="!collapsed">
+    <div class="list-item"  *ngFor="let item of items">
+      <button class="remove-item-button" (click)="removeItem(item)">X</button>
+      <p style="display: inline-block;"  class="item-text">{{item.text}}</p>
+    </div>
+    <app-list-form [warning]="inputEmpty ? 'Add an item to the list!' : ''"
+                   [placeholder]="'New item (enter to submit)'"
+                   (onFormSubmit)="addItem($event)">
+    </app-list-form>
   </div>
-  <app-list-form [warning]="inputEmpty ? 'Add an item to the list!' : ''"
-                 [placeholder]="'New item (enter to submit)'"
-                 (onFormSubmit)="addItem($event)">
-  </app-list-form>
+
 </div>

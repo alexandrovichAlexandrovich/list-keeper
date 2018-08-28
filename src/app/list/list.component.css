@@ -3,11 +3,9 @@
 }
 
 .list{
-  /*border: 1px solid black;*/
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 10px;
   border-top: 1px solid dimgrey;
-  /*border-bottom: 1px solid dimgrey;*/
   width: 75%;
   margin-left: 10px;
   font-family: sans-serif;
@@ -15,14 +13,12 @@
 
 .list-header{
   position:relative;
-  /*border: 1px solid black;*/
   margin-left: 5px;
   width: 95%;
   font-family: sans-serif;
 }
 
 .list-name{
-  /*border: 1px solid black;*/
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   background-color: peachpuff;
@@ -34,41 +30,29 @@
 }
 
 .remove-list-button{
-  /*border: 1px solid black;*/
-  /*-webkit-appearance: none;*/
-  /*padding-left: 20px;*/
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   background-color: peachpuff;
   border: 0px;
-  margin-right: 5px;
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*left: 0;*/
-  /*width: 50px;*/
+  margin-right: 2px;
   height: 100%;
   margin-top: 0px;
-  padding: 22px 10px;
+  padding: 22px 8px;
 }
 
 .list-item {
   position:relative;
-  /*border: 1px solid black;*/
   margin-left: 20px;
   width: 95%;
   font-family: sans-serif;
 }
 
 .item-text {
-  /*border: 1px solid black;*/
-  /*margin-left: 40px;*/
   font-size: 14px;
   width: 60%;
 }
 
 .remove-item-button {
-  /*border: 1px solid black;*/
-  /*-webkit-appearance: none;*/
   border-radius: 20px;
   background-color: transparent;
   color: red;
